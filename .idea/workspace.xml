@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/student_prediction_api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/grade_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/ml_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/score_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/student_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/subject_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/type_class_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbs/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/ml_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/grade.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/score.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/student.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/subject.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/teacher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/type_class.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/grade_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/predict_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/score_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/student_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/subject_shema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/teacher_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/type_class_schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/grade_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/ml_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/score_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/student_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/subject_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/teacher_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/type_class_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_main.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/response.py" afterDir="false" />
-    </list>
+    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="new update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +22,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/khonkimhong101/student_prediction_api.git",
+    "accountId": "76cdff45-d883-4d97-9ccc-fb62d4a39098"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -146,11 +104,36 @@
       <workItem from="1764324532598" duration="19000" />
       <workItem from="1764324612225" duration="394000" />
       <workItem from="1764380926866" duration="4000" />
+      <workItem from="1764556594820" duration="340000" />
     </task>
+    <task id="LOCAL-00001" summary="new update">
+      <option name="closed" value="true" />
+      <created>1764556927586</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764556927586</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new update" />
+    <option name="LAST_COMMIT_MESSAGE" value="new update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/student_prediction_api$student_prediction_api.coverage" NAME="student_prediction_api Coverage Results" MODIFIED="1764254475563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
