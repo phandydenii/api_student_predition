@@ -23,7 +23,7 @@ def get_students(db: Session) -> JSONResponse:
 
 def get_student_by_grade_class_type(grade_id: int,class_type_id: int, db: Session):
     try:
-        student = db.query(Student).filter(Student.grade_id == grade_id and Student.typeclass_id ==class_type_id).first()
+        student = db.query(Student).filter(Student.grade_id == grade_id and Student.typeclass_id ==class_type_id).all()
         if not student:
             return not_found(message="Student not found")
         return success(student, "Successfully fetched student")

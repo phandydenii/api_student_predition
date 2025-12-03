@@ -23,15 +23,7 @@ def gets(grade_id: int, typeclass_id: int,year: int = 0,db: Session = Depends(ge
 
 @router.post("", response_class=JSONResponse, status_code=201)
 def create(score_data: ScoreCreate,db: Session = Depends(get_db)):
-    try:
-        data = score_service.create_score(db,score_data)
-        return success(data)
-    except Exception as e:
-        db.rollback()
-        return internal_error(str(e))
-    finally:
-        db.commit()
-        db.close()
+    return score_service.create_score(db,score_data)
 
 @router.post("/upload", response_class=JSONResponse, status_code=201)
 async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(get_db)):
@@ -39,15 +31,16 @@ async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(
         contents = await file.read()
         df = pd.read_csv(BytesIO(contents))
         # Convert DataFrame to a list of dicts
-        data = df.to_dict(orient="records")
-        json = jsonable_encoder(data)
-        required_columns = {"student_id", "subject_id", "month","homework","monthly","social","absence"}
+        records = df.to_dict(orient="records")
+        json = jsonable_encoder(records)
+        required_columns = {"student_id", "subject_id","year", "month","homework","monthly","social","absence"}
         if not required_columns.issubset(df.columns):
             return internal_error(f"CSV must contain columns: {required_columns}")
         for row in json:
             data = ScoreCreate(
                 student_id=row["student_id"],
                 subject_id=row["subject_id"],
+                year=row["year"],
                 month=row["month"],
                 homework=row["homework"],
                 monthly=row["monthly"],
@@ -55,7 +48,7 @@ async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(
                 absence=row["absence"]
             )
             score_service.create_score(db,data)
-        return success(None, f"Scores {len(data)} successfully uploaded csv file")
+        return success(None, f"Scores {len(records)} successfully uploaded csv file")
     except Exception as e:
         db.rollback()
         return internal_error(message=str(e))

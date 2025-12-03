@@ -8,13 +8,13 @@ import os, joblib
 from ml import ml_model
 from models.score import Score
 from models.student import Student
-from schemas.student_schema import StudentSummary
-from services.score_service import get_scores_by_student
 from utils.response import internal_error
 
 
-def student_summary(student_id: int, db: Session):
-    scores = get_scores_by_student(db, student_id)
+def student_summary(student_id: int,year: int, db: Session):
+    scores = db.query(Score).filter(Score.student_id == student_id and Score.year == year).all()
+    # scores = get_scores_student(db, student_id,year)
+    # print(scores)
     if not scores:
         raise HTTPException(status_code=404, detail="No scores found for this student")
     total_score = sum(s.total for s in scores)

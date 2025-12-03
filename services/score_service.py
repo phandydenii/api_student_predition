@@ -11,11 +11,29 @@ from models.score import Score
 from utils.response import not_found, internal_error, success
 
 
+def get_scores_student(db: Session, student_id: int,year: int):
+    try:
+        query = db.query(Score)
+        if student_id:
+            query = query.filter(Score.student_id == student_id)
+        if year:
+            query = query.filter(Score.year == year)
+        data = query.all()
+        if data is None:
+            return not_found("Not found")
+        return data
+    except Exception as e:
+        db.rollback()
+        return internal_error(message=str(e))
+    finally:
+        db.commit()
+        db.close()
+
 def get_scores_by_student(db: Session, student_id: int,year: int):
     try:
         query = db.query(Score)
         if student_id:
-            query = query.filter(Student.id == student_id)
+            query = query.filter(Score.student_id == student_id)
         if year:
             query = query.filter(Score.year == year)
         data = query.all()
@@ -129,6 +147,7 @@ def create_score(db: Session, score_data: ScoreCreate):
         db_score = Score(
             student_id=score_data.student_id,
             subject_id=score_data.subject_id,
+            year=score_data.year,
             month=score_data.month,
             homework=score_data.homework,
             monthly=score_data.monthly,
@@ -147,8 +166,7 @@ def create_score(db: Session, score_data: ScoreCreate):
             "alert": alert,
             "ml_train": ml_train_info
         }
-        json_data = jsonable_encoder(data)
-        return success(data=None,message="Success")
+        return success(data,message="Success")
     except Exception as e:
         db.rollback()
         return internal_error(message=str(e))

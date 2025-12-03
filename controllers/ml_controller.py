@@ -10,8 +10,8 @@ from utils.response import success, internal_error
 
 router = APIRouter(prefix="/machine-learning", tags=["Machine-Learning"])
 @router.get("/summary/{student_id}", response_class=JSONResponse, status_code=201)
-def summary_student(student_id: int,db: Session = Depends(get_db)):
-    return student_summary(student_id, db)
+def summary_student(student_id: int,year: int,db: Session = Depends(get_db)):
+    return student_summary(student_id,year, db)
 
 @router.post("/predict/{student_id}", response_class=JSONResponse, status_code=201)
 def create_student(student_id: int,db: Session = Depends(get_db)):

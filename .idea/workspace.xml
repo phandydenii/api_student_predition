@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="new update">
+    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ml_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ml_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/score_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/score_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml.student_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/ml.student_model.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ml_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/ml_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/score_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/score_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/student_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/student_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +37,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;phandydenii&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -65,11 +68,13 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/phandy/Documents/Python/student_prediction_api&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.log&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -120,6 +125,8 @@
       <workItem from="1764380926866" duration="4000" />
       <workItem from="1764556594820" duration="532000" />
       <workItem from="1764592732706" duration="452000" />
+      <workItem from="1764593319306" duration="250000" />
+      <workItem from="1764747058214" duration="2020000" />
     </task>
     <task id="LOCAL-00001" summary="new update">
       <option name="closed" value="true" />
@@ -148,7 +155,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -159,6 +183,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="new update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/student_prediction_api$student_prediction_api.coverage" NAME="student_prediction_api Coverage Results" MODIFIED="1764254475563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/student_prediction_api$student_prediction_api.coverage" NAME="student_prediction_api Coverage Results" MODIFIED="1764749051389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
