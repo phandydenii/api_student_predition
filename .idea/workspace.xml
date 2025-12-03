@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ml_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ml_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/score_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/score_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml.student_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/ml.student_model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/ml_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/ml_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/score_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/score_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/student_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/student_service.py" afterDir="false" />
-    </list>
+    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +118,7 @@
       <workItem from="1764556594820" duration="532000" />
       <workItem from="1764592732706" duration="452000" />
       <workItem from="1764593319306" duration="250000" />
-      <workItem from="1764747058214" duration="2020000" />
+      <workItem from="1764747058214" duration="2628000" />
     </task>
     <task id="LOCAL-00001" summary="new update">
       <option name="closed" value="true" />
