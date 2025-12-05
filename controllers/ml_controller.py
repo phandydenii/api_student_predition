@@ -18,5 +18,5 @@ def create_student(student_id: int,db: Session = Depends(get_db)):
     return predict_student_overall(student_id,db)
 
 @router.post("/predict-by-filter", response_class=JSONResponse, status_code=201)
-def create_student(grade_id: int, typeclass_id: int,db: Session = Depends(get_db)):
-    return predict_students_by_grade_class(grade_id,typeclass_id,db)
+def create_student(grade_id: int, typeclass_id: int,year: int,db: Session = Depends(get_db)):
+    return predict_students_by_grade_class(grade_id,typeclass_id,year,db)

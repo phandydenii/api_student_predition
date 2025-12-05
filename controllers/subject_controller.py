@@ -8,10 +8,10 @@ from services import subject_service
 from utils.response import success, internal_error
 
 router = APIRouter(prefix="/subjects", tags=["Subjects"])
-@router.get("", response_class=JSONResponse, status_code=201)
+@router.get("/all", response_class=JSONResponse, status_code=201)
 def gets(db: Session = Depends(get_db)):
     return subject_service.gets(db)
-@router.get("/{subject_id}", response_class=JSONResponse, status_code=201)
+@router.get("", response_class=JSONResponse, status_code=201)
 def get(subject_id: int,db: Session = Depends(get_db)):
     return subject_service.get(subject_id,db)
 @router.post("", response_class=JSONResponse, status_code=201)

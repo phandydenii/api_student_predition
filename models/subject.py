@@ -9,3 +9,5 @@ class Subject(Base):
     max_score = Column(Float, default=100.0)
     typeclass_id = Column(Integer, ForeignKey("typeclass.id"), nullable=True)
     absence_deduction = Column(Float, default=5.0)  # points to subtract per 1 absence for this subject
+
+    scores = relationship("Score", back_populates="subject")

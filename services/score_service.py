@@ -1,5 +1,5 @@
 from fastapi.encoders import jsonable_encoder
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from fastapi import HTTPException
 
 import schemas
@@ -8,100 +8,113 @@ from models.student import Student
 from models.subject import Subject
 from schemas.score_schema import ScoreCreate
 from models.score import Score
-from utils.response import not_found, internal_error, success
+from utils.response import not_found, internal_error, success, success_new
 
 
-def get_scores_student(db: Session, student_id: int,year: int):
+# def get_scores_student(db: Session, student_id: int,year: int):
+#     try:
+#         data = db.query(Score).options(joinedload(Score.subject_id)).filter(Score.student_id == student_id,Score.year == year).all()
+#         if data is None:
+#             return not_found("Not found")
+#         return data
+#     except Exception as e:
+#         db.rollback()
+#         return internal_error(message=str(e))
+#     finally:
+#         db.commit()
+#         db.close()
+
+def get_scores_by_student(db: Session, student_id: int, year: int):
     try:
-        query = db.query(Score)
-        if student_id:
-            query = query.filter(Score.student_id == student_id)
-        if year:
-            query = query.filter(Score.year == year)
-        data = query.all()
-        if data is None:
+        data = (
+            db.query(Score)
+            .options(joinedload(Score.subject))
+            .filter(Score.student_id == student_id, Score.year == year)
+            .all()
+        )
+        count = 0
+        total = 0
+        for score in data:
+            total += score.total
+            count += 1
+        total_average = total / count
+        if not data:
             return not_found("Not found")
-        return data
+        return success_new(data,total_average, message="Success")
     except Exception as e:
         db.rollback()
         return internal_error(message=str(e))
     finally:
-        db.commit()
         db.close()
 
-def get_scores_by_student(db: Session, student_id: int,year: int):
-    try:
-        query = db.query(Score)
-        if student_id:
-            query = query.filter(Score.student_id == student_id)
-        if year:
-            query = query.filter(Score.year == year)
-        data = query.all()
-        if data is None:
-            return not_found("Not found")
-        return success(data,message="Success")
-    except Exception as e:
-        db.rollback()
-        return internal_error(message=str(e))
-    finally:
-        db.commit()
-        db.close()
-def get_scores_by_grade_class(db: Session, grade_id: int, typeclass_id: int,year: int):
-    try:
-        # Get all students in the grade and typeclass
-        # students = db.query(Student).filter(
-        #     Student.grade_id == grade_id,
-        #     Student.typeclass_id == typeclass_id
-        # ).all()
-        query = db.query(Student)
 
-        if grade_id:
-            query = query.filter(Student.grade_id == grade_id)
-        if typeclass_id:
-            query = query.filter(Student.typeclass_id == typeclass_id)
-
-        students = query.all()
+def get_scores_by_grade_class(db: Session, grade_id: int, typeclass_id: int, year: int):
+    try:
+        # Get all students
+        students = (
+            db.query(Student)
+            .filter(Student.grade_id == grade_id,
+                    Student.typeclass_id == typeclass_id)
+            .all()
+        )
 
         if not students:
-            raise HTTPException(status_code=404, detail="No students found for this grade and typeclass")
+            raise HTTPException(status_code=404, detail="No students found")
 
-        # Get scores for all students
         results = []
+
         for student in students:
-            sc_query = db.query(Score)
+
+            # Join subject
+            sc_query = (
+                db.query(Score)
+                .options(joinedload(Score.subject))  # <-- LOAD subject object
+                .filter(Score.student_id == student.id)
+            )
+
             if year:
                 sc_query = sc_query.filter(Score.year == year)
 
             scores = sc_query.all()
-            if not scores:
-                continue  # skip students with no scores
-            # convert SQLAlchemy objects to dict
+
             student_scores = [
                 {
                     "subject_id": s.subject_id,
+                    "subject_name": s.subject.name if s.subject else None,
                     "year": s.year,
                     "month": s.month,
                     "homework": s.homework,
                     "monthly": s.monthly,
                     "social": s.social,
                     "absence": s.absence,
-                    "total": getattr(s, "total", s.homework + s.monthly + s.social)  # if total field not exist
+                    "total": s.total,
+
+                    # 📌 Full Subject Object Here
+                    "subject": {
+                        "id": s.subject.id,
+                        "name": s.subject.name,
+                    } if s.subject else None
                 }
                 for s in scores
             ]
+
             results.append({
                 "student_id": student.id,
                 "first_name": student.first_name,
                 "last_name": student.last_name,
                 "scores": student_scores
             })
-        return success(results,message="Success")
+
+        return success(results, message="Success")
+
     except Exception as e:
         db.rollback()
-        return internal_error(message=str(e))
+        return internal_error(str(e))
+
     finally:
-        db.commit()
         db.close()
+
+
 def create_score(db: Session, score_data: ScoreCreate):
     try:
         # Ensure student and subject exist (student check optional)

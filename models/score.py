@@ -1,4 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey
+from sqlalchemy.orm import relationship
+
 from dbs.db import Base
 
 class Score(Base):
@@ -14,3 +16,5 @@ class Score(Base):
     absence = Column(Integer, default=0)
     total = Column(Float, default=0.0)
     result_status = Column(String(20), nullable=True)  # Option1 / Option2 or letter/option
+
+    subject = relationship("Subject", back_populates="scores")

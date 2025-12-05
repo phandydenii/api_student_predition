@@ -12,7 +12,7 @@ from utils.response import internal_error
 
 
 def student_summary(student_id: int,year: int, db: Session):
-    scores = db.query(Score).filter(Score.student_id == student_id and Score.year == year).all()
+    scores = db.query(Score).filter(Score.student_id == student_id, Score.year == year).all()
     # scores = get_scores_student(db, student_id,year)
     # print(scores)
     if not scores:
@@ -78,7 +78,7 @@ def predict_student_overall(student_id: int, db: Session):
         status_code=200
     )
 
-def predict_students_by_grade_class(grade_id: int, typeclass_id: int, db: Session):
+def predict_students_by_grade_class(grade_id: int, typeclass_id: int,year: int, db: Session):
     # Get all students matching grade and typeclass
     students = db.query(Student).filter(
         Student.grade_id == grade_id,
@@ -98,7 +98,7 @@ def predict_students_by_grade_class(grade_id: int, typeclass_id: int, db: Sessio
     results = []
 
     for student in students:
-        scores = db.query(Score).filter_by(student_id=student.id).all()
+        scores = db.query(Score).filter(Score.student_id ==student.id, Score.year == year).all()
         if not scores:
             continue  # skip students without scores
 

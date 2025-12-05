@@ -2,7 +2,7 @@ from io import BytesIO
 import pandas as pd
 from fastapi import HTTPException, UploadFile, File
 from fastapi.encoders import jsonable_encoder
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from starlette.responses import JSONResponse
 from models.student import Student
 from schemas.student_schema import StudentBase
@@ -11,7 +11,16 @@ from utils.response import success, internal_error, not_found
 
 def get_students(db: Session) -> JSONResponse:
     try:
-        students = db.query(Student).all()
+        students = (
+            db.query(Student)
+            .options(
+                joinedload(Student.grade),
+                joinedload(Student.typeclass)
+            )
+            .all()
+        )
+
+        # students = db.query(Student).all()
         if len(students) == 0:
             return not_found("Data not found")
         return success(students, "Successfully fetched students")
@@ -23,10 +32,18 @@ def get_students(db: Session) -> JSONResponse:
 
 def get_student_by_grade_class_type(grade_id: int,class_type_id: int, db: Session):
     try:
-        student = db.query(Student).filter(Student.grade_id == grade_id and Student.typeclass_id ==class_type_id).all()
-        if not student:
+        students = (
+            db.query(Student)
+            .options(
+                joinedload(Student.grade),
+                joinedload(Student.typeclass)
+            )
+            .filter(Student.grade_id == grade_id, Student.typeclass_id ==class_type_id)
+            .all()
+        )
+        if not students:
             return not_found(message="Student not found")
-        return success(student, "Successfully fetched student")
+        return success(students, "Successfully fetched student")
     except Exception as e:
         return internal_error(message=str(e))
     finally:
@@ -35,7 +52,14 @@ def get_student_by_grade_class_type(grade_id: int,class_type_id: int, db: Sessio
 
 def get_student(student_id: int, db: Session):
     try:
-        student = db.query(Student).filter(Student.id == student_id).first()
+        student = (
+            db.query(Student)
+            .options(
+                joinedload(Student.grade),
+                joinedload(Student.typeclass)
+            )
+            .filter(Student.id == student_id).first()
+        )
         if not student:
             return not_found(message="Student not found")
         return success(student, "Successfully fetched student")

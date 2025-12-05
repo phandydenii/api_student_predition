@@ -13,6 +13,21 @@ def success(data=None, message="success"):
             "status": {"code": "200", "message": message}
         }
     )
+
+def success_new(data=None,total_average = None, message="success"):
+    if data is None:
+        data = {}
+    else:
+        # convert ORM models or complex objects to JSON-compatible
+        data = jsonable_encoder(data)
+    return JSONResponse(
+        content={
+            "data": data,
+            "total_average": total_average,
+            "status": {"code": "200", "message": message}
+        }
+    )
+
 def not_found(message="Not found"):
     return JSONResponse(
         content={

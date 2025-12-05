@@ -13,14 +13,14 @@ from services import student_service
 from utils.response import success,internal_error
 
 router = APIRouter(prefix="/students", tags=["Student"])
-@router.get("", response_class=JSONResponse, status_code=201)
+@router.get("/all", response_class=JSONResponse, status_code=201)
 def get_students(db: Session = Depends(get_db)):
     return student_service.get_students(db)
 
 @router.get("/filter", response_class=JSONResponse, status_code=201)
 def get_students(grade_id: int,class_type_id: int,db: Session = Depends(get_db)):
     return student_service.get_student_by_grade_class_type(grade_id,class_type_id, db)
-@router.get("/{student_id}", response_class=JSONResponse, status_code=201)
+@router.get("", response_class=JSONResponse, status_code=201)
 def get_student(student_id: int,db: Session = Depends(get_db)):
     return student_service.get_student(student_id, db)
 @router.post("", response_class=JSONResponse, status_code=201)

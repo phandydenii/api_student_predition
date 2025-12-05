@@ -13,11 +13,11 @@ from services import score_service
 from utils.response import success, internal_error
 
 router = APIRouter(prefix="/scores", tags=["Scores"])
-@router.get("/{student_id}/{year}", response_class=JSONResponse, status_code=201)
+@router.get("", response_class=JSONResponse, status_code=201)
 def gets(student_id: int,year: int = 0,db: Session = Depends(get_db)):
     return score_service.get_scores_by_student(db,student_id,year)
 
-@router.get("/filter/{grade_id}/{typeclass_id}/{year}", response_class=JSONResponse, status_code=201)
+@router.get("/filter", response_class=JSONResponse, status_code=201)
 def gets(grade_id: int, typeclass_id: int,year: int = 0,db: Session = Depends(get_db)):
     return score_service.get_scores_by_grade_class(db,grade_id,typeclass_id,year)
 

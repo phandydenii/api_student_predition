@@ -9,10 +9,10 @@ from services import type_class_service
 from utils.response import success, internal_error
 
 router = APIRouter(prefix="/type-class", tags=["Type classes"])
-@router.get("")
+@router.get("/all")
 def gets(db: Session = Depends(get_db))->JSONResponse:
     return type_class_service.gets(db)
-@router.get("/{type_class_id}")
+@router.get("")
 def gets(type_class_id: int,db: Session = Depends(get_db))->JSONResponse:
     return type_class_service.get(type_class_id,db)
 @router.post("", response_class=JSONResponse, status_code=201)
