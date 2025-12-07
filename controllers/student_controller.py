@@ -37,14 +37,17 @@ async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(
     try:
         contents = await file.read()
         df = pd.read_csv(BytesIO(contents))
+        df = df.fillna("")
         # Convert DataFrame to a list of dicts
         data = df.to_dict(orient="records")
         json = jsonable_encoder(data)
-        required_columns = {"first_name", "last_name", "gender","dob","grade_id","typeclass_id"}
+        print(len(json))
+        required_columns = {"id","first_name", "last_name", "gender","dob","grade_id","typeclass_id"}
         if not required_columns.issubset(df.columns):
             return internal_error(f"CSV must contain columns: {required_columns}")
         for row in json:
             student = StudentBase(
+                id = row["id"],
                 first_name=row["first_name"],
                 last_name=row["last_name"],
                 gender=row["gender"],
@@ -53,7 +56,7 @@ async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(
                 typeclass_id=row["typeclass_id"],
             )
             student_service.create_student(student, db)
-        return success(None, f"Students {len(data)} successfully uploaded csv file")
+        return success(None, f"Students {len(json)} successfully uploaded csv file")
     except Exception as e:
         db.rollback()
         return internal_error(message=str(e))

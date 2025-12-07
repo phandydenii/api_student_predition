@@ -73,6 +73,7 @@ def get_student(student_id: int, db: Session):
 def create_student(data: StudentBase, db: Session) -> JSONResponse:
     try:
         db_student = Student(
+            id=data.id,
             first_name=data.first_name,
             last_name=data.last_name,
             gender=data.gender,
