@@ -30,9 +30,11 @@ async def upload_csv_pandas(file: UploadFile = File(...), db: Session = Depends(
     try:
         contents = await file.read()
         df = pd.read_csv(BytesIO(contents))
+        df = df.fillna("")
         # Convert DataFrame to a list of dicts
         records = df.to_dict(orient="records")
         json = jsonable_encoder(records)
+        print(json)
         required_columns = {"student_id", "subject_id","year", "month","homework","monthly","social","absence"}
         if not required_columns.issubset(df.columns):
             return internal_error(f"CSV must contain columns: {required_columns}")

@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="">
+    <list default="true" id="cd4a3222-c344-4ba6-a8c8-a733a3859d89" name="Changes" comment="AddDetailScoreInfoAndAverage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/grade_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/grade_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ml_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ml_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/score_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/score_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/student_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/student_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/subject_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/subject_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/type_class_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/type_class_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/score.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/subject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/ml_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/ml_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/score_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/score_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml.student_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/ml.student_model.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/student_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/student_schema.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/student_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/student_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/response.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +128,8 @@
       <workItem from="1764747058214" duration="3701000" />
       <workItem from="1764750833993" duration="46000" />
       <workItem from="1764854855098" duration="3924000" />
-      <workItem from="1764903637060" duration="3076000" />
+      <workItem from="1764903637060" duration="4020000" />
+      <workItem from="1765075131277" duration="2811000" />
     </task>
     <task id="LOCAL-00001" summary="new update">
       <option name="closed" value="true" />
@@ -154,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764556988153</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="AddDetailScoreInfoAndAverage">
+      <option name="closed" value="true" />
+      <created>1764907057688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764907057688</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,9 +191,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new update" />
-    <option name="LAST_COMMIT_MESSAGE" value="new update" />
+    <MESSAGE value="AddDetailScoreInfoAndAverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="AddDetailScoreInfoAndAverage" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/student_prediction_api$student_prediction_api.coverage" NAME="student_prediction_api Coverage Results" MODIFIED="1764906004352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/student_prediction_api$student_prediction_api.coverage" NAME="student_prediction_api Coverage Results" MODIFIED="1765078854559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

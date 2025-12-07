@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 
 class StudentBase(BaseModel):
+    id: int
     first_name: str
     last_name: str
     gender: str
